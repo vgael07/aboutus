@@ -2,9 +2,9 @@
 require_once("includes/connect.php");
 
 if(isset($_GET['editid'])){
-$strID=$rowLoad=0;
-$strTitle=$rowLoad="";
-$strContent=$rowLoad="";
+$strID=0;
+$strTitle="";
+$strContent="";
 try {
     $id=$_GET['editid'];
     $sqlLoad = "SELECT * FROM aboutus WHERE aboutid=?";
@@ -56,7 +56,7 @@ try {
                         <div class="card mb-4">
                             <div class="card-body">
                                 <p>This page allows end-user to facilitate adding, modifying, and deleting ABOUT US records.</p>
-                                <!-- <button type="submit" class="btn btn-primary">Add New Record</button> -->
+                                 <button type="submit" class="btn btn-primary">Add New Record</button> 
                             </div>
                         </div>
                         <div class="card mb-4">
@@ -80,18 +80,11 @@ try {
                                         <tr>
                                             <th>ID</th>
                                             <th>Tilte</th>
-                                            <th>Content</th>
-                                            <th>Action</th>        
+                                            <th>Author</th>
+                                            <th>Date</th> 
+                                            <th>Story</th>        
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Tilte</th>
-                                            <th>Content</th>
-                                            <th>Action</th>                                       
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
                                         <?php
                                             $sql="SELECT * FROM aboutus";
@@ -142,19 +135,18 @@ try {
                         </div>
                         <div class="input-group mb-3">
                             <form action="process_about.php" method="GET">
-                                <label>Title</label>
-                                <input type="text" class="form-control" name="txtTitle" required value="<?=$strTitle?>">
-                        </div>
+                                <label  >Title</label>
+                                <input type="text" class="form-control" name="txtTitle" required>
+                            </div>
 
-                        <div class="mb-3">
-                            <label for="txtContent" class="form-label">Text Area</label>
-                            <textarea class="form-control" name="txtContent" rows="3" required><?=$strContent?></textarea>
-                        </div>
-                        <button>Submit</button>
-                        </form>
+                            <div class="mb-3">
+                                <label for="txtContent" class="form-label">Text Area</label>
+                                <textarea class="form-control" name="txtContent" rows="3" required></textarea>
+                            </div>
+                                <button>Submit</button>
+                            </form>
 
-
-                        <!-- <?php if (isset($record)) { ?>
+                         <?php if (isset($record)) { ?>
                             <div class="card mb-4">
                                 <div class="card-body">
                                     <h3>Edit Record</h3>
@@ -175,7 +167,7 @@ try {
                                     </form>
                                 </div>
                             </div>
-                        <?php } ?> -->
+                        <?php } ?> 
                     </div>
                 </div>
             </div>
